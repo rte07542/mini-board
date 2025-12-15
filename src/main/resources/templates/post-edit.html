@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>수정</title>
+</head>
+<body>
+<h1>글 수정</h1>
+<form th:action="@{/post/{id}/edit(id=${post.id})}" method="post">
+    <textarea name="content" rows="6" cols="50" th:text="${post.content}"></textarea>
+    <br>
+    <button type="submit">수정 완료</button>
+</form>
+
+<hr>
+<a th:href="@{/post/{id}(id=${post.id})}">취소</a>
+</body>
+</html>

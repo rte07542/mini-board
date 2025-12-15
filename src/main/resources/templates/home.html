@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post 목록</title>
+</head>
+<body>
+<h1>Post 목록</h1>
+<ul>
+    <li th:each="p:${posts}">
+        <a th:href="@{/post/{id}(id=${p.id})}">
+            <span th:text="${p.id}"></span> - <span th:text="${p.content}"></span>
+        </a>
+    </li>
+</ul>
+
+<a href="/post/new">새로 작성</a>
+
+</body>
+</html>
