@@ -5,16 +5,36 @@
     <title>Post 목록</title>
 </head>
 <body>
+
 <h1>Post 목록</h1>
 <ul>
     <li th:each="p:${posts}">
         <a th:href="@{/post/{id}(id=${p.id})}">
-            <span th:text="${p.id}"></span> - <span th:text="${p.content}"></span>
+            <span th:text="${p.id}"></span> -
+            <span th:text="${p.content}"></span>
+            <span>(</span>
+            <span th:text="${p.writerUserid}"></span>
+            <span>)</span>
         </a>
     </li>
 </ul>
 
-<a href="/post/new">새로 작성</a>
+<div th:if="${loginUserId != null}">
+    <a href="/post/new">새로 작성</a>
+</div>
+
+<div>
+    <div th:if="${loginUserId == null}">
+        <a href="/auth/login">로그인</a>
+        <a href="/users/signup">회원가입</a>
+    </div>
+
+    <div th:if="${loginUserId != null}">
+        <form method="post" action="/auth/logout" style="display:inline;">
+            <button type="submit">로그아웃</button>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
-package com.example.post.repository;
+package com.example.mini_board.posts.repository;
 
-import com.example.post.entity.Post;
+import com.example.mini_board.posts.entity.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 //Post : 다룰 엔티티, Long : PK타입

@@ -8,16 +8,21 @@
     <h1>글 상세</h1>
 
     <div><strong>번호: </strong> <span th:text="${post.id}"></span></div>
+    <p>작성자: <span th:text="${post.writerUserid}"></span></p>
+
+<hr>
     <div><strong>내용: </strong> <span th:text="${post.content}"></span></div>
 
 <hr>
-<a th:href="@{/post/{id}/edit(id=${post.id})}">수정</a>
-<form th:action="@{/post/{id}/delete(id=${post.id})}"
-      method="post"
-      style="display:inline;"
-      onsubmit="return confirm('진짜 삭제 할거야? 되돌릴 수 없는데?');">
-    <button type="submit">삭제</button>
-</form>
+<div th:if="${loginUserId != null and loginUserId == post.userId}">
+    <a th:href="@{/post/{id}/edit(id=${post.id})}">수정</a>
+    <form th:action="@{/post/{id}/delete(id=${post.id})}"
+          method="post"
+          style="display:inline;"
+          onsubmit="return confirm('진짜 삭제 할거야? 되돌릴 수 없는데?');">
+        <button type="submit">삭제</button>
+    </form>
+</div>
 <a href="/">목록</a>
 </body>
 </html>

@@ -1,10 +1,11 @@
-package com.example.post.entity;
+package com.example.mini_board.posts.entity;
 
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "posts")
 public class Post {
 
     //PK
@@ -12,19 +13,23 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //글, 작성시간, 수정시간
+    //작성자 (User.id)
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
+
     @Column(nullable = false, length = 2000)
     private String content;
+
     private LocalDateTime createdAt;
     private LocalDateTime updateAt;
 
-    protected Post() {
-        //JPA를 위한 생성자, 사람은 쓰지않는다.
-    }
+    //JPA를 위한 생성자, 사람은 쓰지않는다.
+    protected Post() {}
 
-    //새 글 하나 만들고싶다. 추후에 new Post("글 내용"); 으로 사용된다.
-    public Post(String content){
+    //사람이 쓰는 생성자
+    public  Post(String content, Long userId) {
         this.content = content;
+        this.userId = userId;
     }
 
     //글 작성하고 db에 처음 저장되기 직전에 호출된다. 생성시간, 수정시간이 자동 설정됨
@@ -47,6 +52,7 @@ public class Post {
     public String getContent(){
         return content;
     }
+    public Long getUserId() {return userId;}
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
