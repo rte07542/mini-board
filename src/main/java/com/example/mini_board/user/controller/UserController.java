@@ -4,6 +4,7 @@ package com.example.mini_board.user.controller;
 import com.example.mini_board.user.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/users")
@@ -15,11 +16,14 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    @ResponseBody
     public String signup(@RequestParam String userid,
-                         @RequestParam String password) {
-        Long id = userService.signup(userid, password);
-        return  "가입됨.";
+                         @RequestParam String password,
+                         RedirectAttributes redirectAttributes) {
+
+        userService.signup(userid, password);
+
+        redirectAttributes.addFlashAttribute("msg", "회원가입 완료. 이제 로그인 해라.");
+        return  "redirect:/";
     }
 
     @GetMapping("/signup")

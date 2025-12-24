@@ -7,13 +7,15 @@
 <body>
 
 <h1>Post 목록</h1>
+<div th:if="${msg != null}" th:text="${msg}"></div>
+
 <ul>
-    <li th:each="p:${posts}">
+    <li th:each="p, stat : ${posts}">
         <a th:href="@{/post/{id}(id=${p.id})}">
-            <span th:text="${p.id}"></span> -
+            <span th:text="${stat.count}"></span> -
             <span th:text="${p.content}"></span>
             <span>(</span>
-            <span th:text="${p.writerUserid}"></span>
+            <span th:text="${p.authorUsername}"></span>
             <span>)</span>
         </a>
     </li>

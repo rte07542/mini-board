@@ -1,12 +1,17 @@
 package com.example.mini_board.user.entity;
 
+import com.example.mini_board.posts.entity.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
-public class User {
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class User extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,24 +22,15 @@ public class User {
     @Column(nullable = false,length = 255)
     private String password;
 
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
-
-    protected User() { }
-
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
+    public User(String userid, String password){
+        this.userid = userid;
+        this.password = password;
     }
 
     public Long getId() {return id;}
     public String getUserid() {return userid;}
     public String getPassword() {return password;}
-    public LocalDateTime getCreatedAt() { return createdAt; }
 
 
-    public User(String userid, String password){
-        this.userid = userid;
-        this.password = password;
-    }
+
 }

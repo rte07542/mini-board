@@ -5,7 +5,6 @@ import com.example.mini_board.posts.service.PostService;
 import com.example.mini_board.user.controller.AuthController;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
