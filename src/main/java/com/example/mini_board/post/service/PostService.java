@@ -1,8 +1,8 @@
-package com.example.mini_board.posts.service;
+package com.example.mini_board.post.service;
 
-import com.example.mini_board.posts.dto.PostViewDto;
-import com.example.mini_board.posts.entity.Post;
-import com.example.mini_board.posts.repository.PostRepository;
+import com.example.mini_board.post.dto.PostViewDto;
+import com.example.mini_board.post.entity.Post;
+import com.example.mini_board.post.repository.PostRepository;
 import com.example.mini_board.user.entity.User;
 import com.example.mini_board.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

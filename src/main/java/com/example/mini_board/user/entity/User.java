@@ -1,11 +1,9 @@
 package com.example.mini_board.user.entity;
 
-import com.example.mini_board.posts.entity.BaseEntity;
+import com.example.mini_board.post.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")

@@ -1,4 +1,4 @@
-package com.example.mini_board.posts.global;
+package com.example.mini_board.post.global;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -16,4 +16,6 @@
 <hr>
 <a href="/">목록으로</a>
 </body>
+<div th:if="${error != null}" th:text="${error}" style="border:1px solid #f00; padding:8px; margin:10px 0;"></div>
+<div th:if="${msg != null}" th:text="${msg}" style="border:1px solid #0a0; padding:8px; margin:10px 0;"></div>
 </html>

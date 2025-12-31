@@ -1,4 +1,4 @@
-package com.example.mini_board.posts.entity;
+package com.example.mini_board.post.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

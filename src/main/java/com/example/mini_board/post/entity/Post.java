@@ -1,11 +1,9 @@
-package com.example.mini_board.posts.entity;
+package com.example.mini_board.post.entity;
 
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "posts")

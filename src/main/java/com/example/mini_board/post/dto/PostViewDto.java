@@ -1,4 +1,4 @@
-package com.example.mini_board.posts.dto;
+package com.example.mini_board.post.dto;
 
 public class PostViewDto {
     private final Long id;

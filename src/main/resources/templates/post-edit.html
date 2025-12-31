@@ -7,7 +7,7 @@
 <body>
 <h1>글 수정</h1>
 <form th:action="@{/post/{id}/edit(id=${post.id})}" method="post">
-    <textarea name="content" rows="6" cols="50" th:text="${post.content}"></textarea>
+    <textarea name="content" rows="6" cols="50" th:text="${content}"></textarea>
     <br>
     <button type="submit">수정 완료</button>
 </form>
@@ -15,4 +15,6 @@
 <hr>
 <a th:href="@{/post/{id}(id=${post.id})}">취소</a>
 </body>
+<div th:if="${error != null}" th:text="${error}" style="border:1px solid #f00; padding:8px; margin:10px 0;"></div>
+<div th:if="${msg != null}" th:text="${msg}" style="border:1px solid #0a0; padding:8px; margin:10px 0;"></div>
 </html>
